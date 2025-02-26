@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bleaaoh86xtlt"]
+
+[ext_resource type="PackedScene" uid="uid://0v4kp24p4xmv" path="res://assets/home.dae" id="1_l5f3h"]
+
+[node name="home" instance=ExtResource("1_l5f3h")]

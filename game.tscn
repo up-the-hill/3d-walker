@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkdlaglnnbdc0"]
+
+[ext_resource type="PackedScene" uid="uid://ba6cfamupc887" path="res://asset_scenes/floor.tscn" id="1_kjkhs"]
+[ext_resource type="PackedScene" uid="uid://dfvqqaqylji8d" path="res://asset_scenes/tree.tscn" id="2_h4mq6"]
+[ext_resource type="PackedScene" uid="uid://m4x5nggik485" path="res://player.tscn" id="3_o4cge"]
+[ext_resource type="PackedScene" uid="uid://cia00ano1g3wc" path="res://asset_scenes/fence.tscn" id="4_decco"]
+[ext_resource type="PackedScene" uid="uid://bpdafvix8g4g8" path="res://asset_scenes/house.tscn" id="5_f68l4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j1otf"]
+sky_top_color = Color(0.290196, 0.478431, 0.545098, 1)
+sky_horizon_color = Color(0.980392, 0.509804, 0, 1)
+
+[sub_resource type="Sky" id="Sky_fef2l"]
+sky_material = SubResource("ProceduralSkyMaterial_j1otf")
+
+[sub_resource type="Environment" id="Environment_6qeks"]
+background_mode = 2
+sky = SubResource("Sky_fef2l")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_density = 0.009
+
+[node name="main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6qeks")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="floor" parent="." instance=ExtResource("1_kjkhs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="tree" parent="." instance=ExtResource("2_h4mq6")]
+transform = Transform3D(1, 4.19599e-11, -1.9858e-14, -4.19599e-11, 1, -0.000959931, -1.98581e-14, 0.000959931, 1, -6, 0, -7)
+
+[node name="tree2" parent="." instance=ExtResource("2_h4mq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5)
+
+[node name="tree3" parent="." instance=ExtResource("2_h4mq6")]
+transform = Transform3D(1, 8.39199e-11, -7.99946e-14, -8.39198e-11, 0.999998, -0.00191986, -7.99948e-14, 0.00191986, 0.999998, -12, 0.00671952, -7)
+
+[node name="tree4" parent="." instance=ExtResource("2_h4mq6")]
+transform = Transform3D(1, 4.196e-11, -1.9858e-14, -4.19599e-11, 1, -0.000959932, -1.98581e-14, 0.000959932, 1, -12, -0.00479966, 5)
+
+[node name="player" parent="." instance=ExtResource("3_o4cge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9223, 8.56449, -0.950901)
+
+[node name="fences" type="Node3D" parent="."]
+
+[node name="fence" parent="fences" instance=ExtResource("4_decco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0297, 0, -5.8776)
+
+[node name="fence2" parent="fences" instance=ExtResource("4_decco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0595, 0, -5.75521)
+
+[node name="fence3" parent="fences" instance=ExtResource("4_decco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0297, 0, -5.8776)
+
+[node name="fence4" parent="fences" instance=ExtResource("4_decco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0595, 0, -5.75521)
+
+[node name="fence5" parent="fences" instance=ExtResource("4_decco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0297, 0, 3.1224)
+
+[node name="fence6" parent="fences" instance=ExtResource("4_decco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0595, 0, 3.24479)
+
+[node name="fence7" parent="fences" instance=ExtResource("4_decco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0297, 0, 3.1224)
+
+[node name="fence8" parent="fences" instance=ExtResource("4_decco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0595, 0, 3.24479)
+
+[node name="house" parent="." instance=ExtResource("5_f68l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -1)
