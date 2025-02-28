@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bqx43tqgcax0"]
 
-[ext_resource type="Script" path="res://Label.gd" id="1_xatem"]
+[ext_resource type="Script" path="res://scenes/Label.gd" id="1_xatem"]
 
 [node name="FPSCounter" type="Control"]
 layout_mode = 3
