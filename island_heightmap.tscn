@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxc0tqelthg8o"]
+
+[ext_resource type="Shader" path="res://island_heightmap.gdshader" id="1_v127x"]
+[ext_resource type="Texture2D" uid="uid://dhbf0dcifyl0p" path="res://icon.svg" id="2_5n1ie"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dvr02"]
+noise_type = 3
+seed = 5
+frequency = 0.009
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6tj0s"]
+noise = SubResource("FastNoiseLite_dvr02")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro8ee"]
+shader = ExtResource("1_v127x")
+shader_parameter/noise = SubResource("NoiseTexture2D_6tj0s")
+
+[node name="Sprite2D" type="Sprite2D"]
+material = SubResource("ShaderMaterial_ro8ee")
+texture = ExtResource("2_5n1ie")
+
+[node name="SubViewport" type="SubViewport" parent="."]

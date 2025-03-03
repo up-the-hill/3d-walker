@@ -1,34 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkdlaglnnbdc0"]
+[gd_scene load_steps=10 format=3 uid="uid://dkdlaglnnbdc0"]
 
+[ext_resource type="Texture2D" uid="uid://kmdcm1xjwurg" path="res://assets/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_4gcag"]
 [ext_resource type="PackedScene" uid="uid://ba6cfamupc887" path="res://asset_scenes/floor.tscn" id="1_kjkhs"]
 [ext_resource type="PackedScene" uid="uid://dfvqqaqylji8d" path="res://asset_scenes/tree.tscn" id="2_h4mq6"]
 [ext_resource type="PackedScene" uid="uid://m4x5nggik485" path="res://scenes/player.tscn" id="3_o4cge"]
 [ext_resource type="PackedScene" uid="uid://cia00ano1g3wc" path="res://asset_scenes/fence.tscn" id="4_decco"]
 [ext_resource type="PackedScene" uid="uid://bpdafvix8g4g8" path="res://asset_scenes/house.tscn" id="5_f68l4"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j1otf"]
-sky_top_color = Color(0.290196, 0.478431, 0.545098, 1)
-sky_horizon_color = Color(0.980392, 0.509804, 0, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7e1ay"]
+panorama = ExtResource("1_4gcag")
 
-[sub_resource type="Sky" id="Sky_fef2l"]
-sky_material = SubResource("ProceduralSkyMaterial_j1otf")
+[sub_resource type="Sky" id="Sky_dlb4o"]
+sky_material = SubResource("PanoramaSkyMaterial_7e1ay")
 
-[sub_resource type="Environment" id="Environment_6qeks"]
+[sub_resource type="Environment" id="Environment_syxbo"]
 background_mode = 2
-sky = SubResource("Sky_fef2l")
+sky = SubResource("Sky_dlb4o")
+ambient_light_energy = 0.5
+reflected_light_source = 2
 tonemap_mode = 2
-glow_enabled = true
-volumetric_fog_density = 0.009
 
 [node name="main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6qeks")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_syxbo")
 
 [node name="floor" parent="." instance=ExtResource("1_kjkhs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
