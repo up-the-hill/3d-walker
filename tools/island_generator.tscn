@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://06vcqotoem5e"]
+
+[ext_resource type="Script" path="res://tools/island_generator.gd" id="1_qg0e7"]
+[ext_resource type="Shader" path="res://tools/island_heightmap.gdshader" id="2_122nl"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4qtgv"]
+noise_type = 3
+seed = 42
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eqfqs"]
+noise = SubResource("FastNoiseLite_4qtgv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxit1"]
+shader = ExtResource("2_122nl")
+shader_parameter/noise = SubResource("NoiseTexture2D_eqfqs")
+
+[node name="IslandGenerator" type="SubViewport"]
+render_target_update_mode = 4
+script = ExtResource("1_qg0e7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_cxit1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

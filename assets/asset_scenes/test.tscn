@@ -1,0 +1,34 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhaepfxtyelge"]
+
+[ext_resource type="PackedScene" uid="uid://bleaaoh86xtlt" path="res://assets/asset_scenes/home.tscn" id="1_c0mku"]
+[ext_resource type="Texture2D" uid="uid://yyja5vh7gkxp" path="res://assets/Nintendo 64 - Super Mario 64 - Backgrounds - 1.png" id="1_ieymp"]
+[ext_resource type="PackedScene" uid="uid://m4x5nggik485" path="res://scenes/player.tscn" id="2_pt4mw"]
+[ext_resource type="PackedScene" uid="uid://bcc1i7cfas3p3" path="res://assets/asset_scenes/home_applied.tscn" id="3_2fv5a"]
+[ext_resource type="PackedScene" uid="uid://b1ooh7lyu8b5s" path="res://assets/home_applied_glb.glb" id="5_na5b4"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5doeh"]
+panorama = ExtResource("1_ieymp")
+
+[sub_resource type="Sky" id="Sky_0nv4w"]
+sky_material = SubResource("PanoramaSkyMaterial_5doeh")
+
+[sub_resource type="Environment" id="Environment_i7vt0"]
+background_mode = 2
+sky = SubResource("Sky_0nv4w")
+tonemap_mode = 2
+
+[node name="test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i7vt0")
+
+[node name="home" parent="." instance=ExtResource("1_c0mku")]
+
+[node name="player" parent="." instance=ExtResource("2_pt4mw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 9)
+
+[node name="home_applied" parent="." instance=ExtResource("3_2fv5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
+
+[node name="home_applied_glb" parent="." instance=ExtResource("5_na5b4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 21)

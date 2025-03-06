@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://myt4a7feax6t"]
+
+[ext_resource type="Material" uid="uid://bvvcbdhvysecw" path="res://shaders/water.tres" id="1_fy6k1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ed55"]
+size = Vector3(10, 10, 10)
+subdivide_width = 100
+subdivide_depth = 100
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6ed55")
+surface_material_override/0 = ExtResource("1_fy6k1")
