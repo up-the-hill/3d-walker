@@ -51,9 +51,9 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0, 0.707107, 0, 0.7
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ce3uj"]
 _data = {
-"Balcony_door": SubResource("Animation_c2884"),
-"RESET": SubResource("Animation_aqvoq"),
-"main_door": SubResource("Animation_55l0e")
+&"Balcony_door": SubResource("Animation_c2884"),
+&"RESET": SubResource("Animation_aqvoq"),
+&"main_door": SubResource("Animation_55l0e")
 }
 
 [node name="home_applied" instance=ExtResource("1_26j4u")]

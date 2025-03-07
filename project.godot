@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="3d walker"
+config/description="No Description"
 run/main_scene="res://scenes/game.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -53,7 +54,7 @@ dash={
 
 [physics]
 
-3d/physics_engine="JoltPhysics3D"
+3d/physics_engine="Jolt Physics"
 
 [rendering]
 
