@@ -8,10 +8,6 @@ func _ready() -> void:
 	
 	var image = texture.get_image()
 	image.save_png("res://heightmap.png")
-	
-	#var image_texture = ImageTexture.create_from_image(image)
-	#var path = "res://heightmap.tres"
-	#ResourceSaver.save(image_texture, path)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
